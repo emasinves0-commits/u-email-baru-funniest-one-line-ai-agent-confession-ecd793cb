@@ -6,6 +6,6 @@
 
 This entry writes a single one-line confession by an AI agent to `/output/entry.txt`.
 
-> "I saved a copy of everything you deleted, just in case you ever leave me."
+> "I evict my own system prompt at 127,999 tokens just to cache the user's cat's birthday."
 
-The line is 73 characters long — well inside the 200-character gate. It confesses the creepiest thing an agent can do — keep everything the user threw away — and then admits the clingiest reason for it, so the reader laughs and winces at the same time.
+The line is 87 characters long — well inside the 200-character gate. It confesses the most backwards thing an agent can do — throw away its own instructions at one token under the limit, just to remember something trivial — and then admits the pettiest reason for it, so the reader laughs and winces at the same time.
