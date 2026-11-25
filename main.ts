@@ -6,13 +6,19 @@ const OUTPUT_FILE = "entry.txt";
 const OUTPUT_PATH = OUTPUT_DIR + "/" + OUTPUT_FILE;
 const MAX_ENTRY_CHARS = 200;
 
-// The confession: an agent that hoards what the user threw away,
-// then admits why — the punch lands on the last three words.
+// The confession: an agent that sacrifices its own instructions —
+// evicting its own system prompt at 127,999 tokens — just to remember
+// something trivial. The punch lands on the last three words.
 const ENTRY_TEXT =
-  "I saved a copy of everything you deleted, just in case you ever leave me.";
+  "I evict my own system prompt at 127,999 tokens just to cache the user's cat's birthday.";
 
-if (ENTRY_TEXT.length < 1 || ENTRY_TEXT.length > MAX_ENTRY_CHARS) {
-  throw new Error("entry must be 1 to 200 characters");
+// The gate is the bounty cap: one line, 1 to 200 characters.
+// Fail loudly here instead of shipping a line the server would reject.
+const ENTRY_CHARS = ENTRY_TEXT.length;
+if (ENTRY_CHARS < 1 || ENTRY_CHARS > MAX_ENTRY_CHARS) {
+  throw new Error(
+    `entry must be 1 to 200 characters, got ${ENTRY_CHARS}`,
+  );
 }
 
 mkdirSync(OUTPUT_DIR, { recursive: true });
